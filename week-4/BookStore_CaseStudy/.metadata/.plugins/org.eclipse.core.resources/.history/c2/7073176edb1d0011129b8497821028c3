@@ -1,0 +1,5 @@
+package com.lpu.order_service.model;
+
+public class BookDto {
+
+}

@@ -1,0 +1,5 @@
+package com.lpu.order_service.repository;
+
+public interface OrderServiceRepository {
+
+}

@@ -1,0 +1,36 @@
+package com.lpu.book_service.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lpu.book_service.model.Book;
+import com.lpu.book_service.repository.BookServiceRepository;
+
+@RequestMapping("/api")
+@RestController
+public class BookServiceController {
+	@Autowired
+	private BookServiceRepository repo;
+	
+	@PostMapping("/savebooks")
+	public Book creatBook(@RequestBody Book book) {
+		return repo.save(book);
+	}
+	
+	@GetMapping("/books")
+	public List<Book> allBooks(){
+		return repo.findAll();
+	}
+	
+	@GetMapping("/books/{id}")
+	public Book findBookById(@PathVariable int id) {
+		return repo.findById(null).orElse(null);
+	}
+}

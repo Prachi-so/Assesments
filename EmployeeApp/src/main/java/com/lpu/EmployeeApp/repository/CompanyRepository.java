@@ -1,9 +1,0 @@
-package com.lpu.EmployeeApp.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.lpu.EmployeeApp.entity.Company;
-
-public interface CompanyRepository extends JpaRepository<Company, Integer> {
-
-}

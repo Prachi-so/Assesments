@@ -1,0 +1,23 @@
+package com.lpu.order_service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+import com.lpu.order_service.model.BookDto;
+
+
+
+@FeignClient("BOOK-SERVICE")
+public interface FeignClientForBook {
+	
+	@GetMapping("/api/books/{id}")
+	public BookDto findBookById(@PathVariable Long id);
+	
+	@PostMapping("/api/savebooks")
+	public BookDto creatBook(@RequestBody BookDto book);
+
+}
